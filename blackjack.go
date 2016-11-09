@@ -4,8 +4,7 @@ import "fmt"
 
 func main() {
 	deck := CreateDeck()
-	fmt.Printf("The first card is %v", deck.Cards[0])
-	fmt.Printf("The second card is %v", deck.Cards[1])
-	fmt.Printf("The third card is %v", deck.Cards[2])
-	fmt.Printf("The last card is %v", deck.Cards[51])
+	card := deck.draw()
+	fmt.Printf("The drawn card is %v", card)
+	fmt.Printf("The length of the deck is %v", len(deck.Cards))
 }

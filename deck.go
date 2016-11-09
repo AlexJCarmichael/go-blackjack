@@ -24,7 +24,7 @@ func newDeck() []Card {
 	rand.Seed(time.Now().UTC().UnixNano())
 	deck := []Card{}
 	for _, v := range Suites {
-		for c := 1; c <= MaxCardValue; c++ {
+		for c := 2; c <= MaxCardValue; c++ {
 			card := Card{v, c}
 			deck = append(deck, card)
 		}
@@ -42,4 +42,10 @@ func shuffleDeck(d []Card) []Card {
 		shuffled++
 	}
 	return d
+}
+
+func (d *Deck) draw() Card {
+	var card Card
+	card, d.Cards = d.Cards[len(d.Cards)-1], d.Cards[:len(d.Cards)-1]
+	return card
 }
