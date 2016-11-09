@@ -4,7 +4,9 @@ import "fmt"
 
 func main() {
 	deck := CreateDeck()
-	card := deck.draw()
-	fmt.Printf("The drawn card is %v", card)
-	fmt.Printf("The length of the deck is %v", len(deck.Cards))
+	player := Player{"Me", []Card{}}
+	dealer := Player{"Dealer", []Card{}}
+	deck.deal(&player, &dealer)
+	fmt.Printf("The player's hand is %v", player.Hand)
+	fmt.Printf("The dealer's hand is %v", dealer.Hand)
 }
